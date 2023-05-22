@@ -4,6 +4,14 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --red : #ef233c;
+    --dark-red : #d90429;
+    --white : #edf2f4;
+    --gray : #8d99ae;
 }
 
 button, a {

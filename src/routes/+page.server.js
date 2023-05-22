@@ -11,14 +11,41 @@ export async function load({ params }) {
         scope : ["predictions"]
     });
 
-    const resp = await sunburst.quality({
-        geo: [40.7933949, -77.8600012]
-    });    
+    const coords = [52.40016106168322, 4.9868781484418685];
 
-    return {
-        post: {
-            title: `Title for ${params.slug} goes here`,
-            content: `Content for ${params.slug} goes here`
-        }
-    };
+    const now = new Date();
+    const demain = new Date(now.getDate() + 1);
+    const apresdemain = new Date(now.getDate() + 2);
+    const apresapresdemain = new Date(now.getDate() + 3);
+
+    // const resp = await sunburst.batchQuality([
+    //     {
+    //         geo : coords,
+    //         type : "sunset"
+    //     },
+    //     {
+    //         geo : coords,
+    //         type : "sunset",
+    //         after : demain
+    //     },
+    //     {
+    //         geo : coords,
+    //         type : "sunset",
+    //         after : apresdemain
+    //     },
+    //     {
+    //         geo : coords,
+    //         type : "sunset",
+    //         after : apresapresdemain
+    //     }
+    // ]);
+
+    // return {
+    //     qualitePourcent : {
+    //         aujourdhui : resp[0].collection.features[0].properties.qualityPercent,
+    //         demain : resp[1].collection.features[0].properties.qualityPercent,
+    //         apresdemain : resp[2].collection.features[0].properties.qualityPercent,
+    //         apresapresdemain : resp[3].collection.features[0].properties.qualityPercent,
+    //     }
+    // };
 }

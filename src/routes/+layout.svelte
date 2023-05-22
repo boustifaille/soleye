@@ -22,10 +22,11 @@
         display: flex;
         justify-content: space-between;
         padding: 0 20px;
+        background-color: var(--dark-red);
     }
 
     nav {
-        width: 50%;
+        width: 80%;
         height: 100%;
     }
 
@@ -34,5 +35,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+    ul a {
+        color: white;
     }
 </style>
