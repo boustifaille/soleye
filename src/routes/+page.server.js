@@ -1,7 +1,7 @@
 import SunburstJS from "sunburst.js";
 import { SUNBURST_CLIENT_ID, SUNBURST_CLIENT_SECRET } from "$env/static/private";
 
-export async function load({ params }) {
+export async function load({ cookies }) {
 
     // https://www.npmjs.com/package/sunburst.js
 
@@ -10,6 +10,8 @@ export async function load({ params }) {
         clientSecret : SUNBURST_CLIENT_SECRET,
         scope : ["predictions"]
     });
+
+    
 
     const coords = [52.40016106168322, 4.9868781484418685];
 

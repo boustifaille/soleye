@@ -17,6 +17,7 @@
 
 <style>
     header {
+        visibility: hidden;
         width: 100%;
         height: 50px;
         display: flex;

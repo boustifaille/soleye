@@ -59,7 +59,6 @@
 </script>
 
 <main>
-    <h1 style="margin-top: 10px;">Bienvenue !</h1>
 
         <div class="jours">
             {#each jours as jour}
@@ -112,6 +111,7 @@
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
     }
+
 
     .jour {
         width: 100vw;
