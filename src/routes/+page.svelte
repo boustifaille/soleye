@@ -1,5 +1,5 @@
 <script>
-    // export let data;
+    export let data;
     import {scaleLinear} from "d3-scale";
     // permet de pouvoir convertir une valeur de 1 à 100 en une couleur plus ou moins chaude
     const getColor = scaleLinear()
@@ -12,48 +12,49 @@
         {
             nom : "Lundi",
             lever : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[0],
                 heure : "9h18",
             },
             coucher : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[1],
                 heure : "18h18",
             }
         },
         {
             nom : "Mardi",
             lever : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[2],
                 heure : "9h18",
             },
             coucher : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[3],
                 heure : "18h18",
             }
         },
         {
             nom : "Mercredi",
             lever : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[4],
                 heure : "9h18",
             },
             coucher : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[5],
                 heure : "18h18",
             }
         },
         {
             nom : "Jeudi",
             lever : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[6],
                 heure : "9h18",
             },
             coucher : {
-                qualite : Math.round(Math.random() * 100),
+                qualite : data.qualites[7],
                 heure : "18h18",
             }
         },
     ];
+
 
 </script>
 
@@ -147,6 +148,10 @@
 
     .coucher .img {
         background-image: url("../assets/icon-sunset.png");
+    }
+
+    .heure {
+        color: var(--gray);
     }
 
     .color {
