@@ -11,25 +11,49 @@
     const jours = [
         {
             nom : "Lundi",
-            lever : Math.round(Math.random() * 100),
-            coucher : Math.round(Math.random() * 100),
+            lever : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "9h18",
+            },
+            coucher : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "18h18",
+            }
         },
         {
             nom : "Mardi",
-            lever : Math.round(Math.random() * 100),
-            coucher : Math.round(Math.random() * 100),
+            lever : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "9h18",
+            },
+            coucher : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "18h18",
+            }
         },
         {
             nom : "Mercredi",
-            lever : Math.round(Math.random() * 100),
-            coucher : Math.round(Math.random() * 100),
+            lever : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "9h18",
+            },
+            coucher : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "18h18",
+            }
         },
         {
             nom : "Jeudi",
-            lever : Math.round(Math.random() * 100),
-            coucher : Math.round(Math.random() * 100),
+            lever : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "9h18",
+            },
+            coucher : {
+                qualite : Math.round(Math.random() * 100),
+                heure : "18h18",
+            }
         },
-    ]
+    ];
 
 </script>
 
@@ -42,12 +66,14 @@
                     <h2>{jour.nom}</h2>
                     <div class="qualites">
                         <div class="lever">
-                            <div class="color" style="background-color: {getColor(jour.lever)};">{jour.lever}%</div>
+                            <div class="color" style="background-color: {getColor(jour.lever.qualite)};">{jour.lever.qualite}%</div>
                             <div class="img"></div>
+                            <div class="heure">{jour.lever.heure}</div>
                         </div>
                         <div class="coucher">
-                            <div class="color" style="background-color: {getColor(jour.coucher)};">{jour.coucher}%</div>
+                            <div class="color" style="background-color: {getColor(jour.coucher.qualite)};">{jour.coucher.qualite}%</div>
                             <div class="img"></div>
+                            <div class="heure">{jour.coucher.heure}</div>
                         </div>
                     </div>
                 </div>
