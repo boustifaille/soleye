@@ -59,7 +59,6 @@
 </script>
 
 <main>
-
         <div class="jours">
             {#each jours as jour}
                 <div class="jour">
@@ -106,7 +105,7 @@
         left: 0;
         display: flex;
         width: 100vw;
-        height: 300px;
+        height: 500px;
         overflow: auto;
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory;
