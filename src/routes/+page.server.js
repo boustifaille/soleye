@@ -1,9 +1,20 @@
 import SunburstJS from "sunburst.js";
-import { SUNBURST_CLIENT_ID, SUNBURST_CLIENT_SECRET } from "$env/static/private";
+import { SUNBURST_CLIENT_ID, SUNBURST_CLIENT_SECRET, LAT, LONG } from "$env/static/private";
 
 export async function load({ cookies }) {
 
     // https://www.npmjs.com/package/sunburst.js
+
+    // const sunburst = new SunburstJS();
+
+    // const session = await sunburst.createSession({
+    //     email: SUNBURST_MAIL,
+    //     password: SUNBURST_PASSWORD,
+    //     type: 'permanent',
+    //     scope: ['predictions']
+    // });
+
+    // console.log(session)
 
     const sunburst = new SunburstJS({
         clientId : SUNBURST_CLIENT_ID,
@@ -13,7 +24,7 @@ export async function load({ cookies }) {
 
     
 
-    const coords = [52.40016106168322, 4.9868781484418685];
+    const coords = [LAT, LONG];
 
     const now = new Date();
     const demain = new Date(now.getDate() + 1);
