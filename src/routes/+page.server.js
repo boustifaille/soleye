@@ -82,3 +82,10 @@ export async function load({ cookies }) {
         // }
     };
 }
+
+
+export const actions = {
+    predictions : async e => {
+        console.log(e)
+    }
+}

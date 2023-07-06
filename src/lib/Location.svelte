@@ -1,10 +1,11 @@
 <script>
     export let localites;
+    export let currentLocalite;
 </script>
 
 
-<select>
+<select bind:value={currentLocalite}>
     {#each localites as localite}
-        <option>{localite}</option>
+        <option value={localite}>{localite}</option>
     {/each}
 </select>

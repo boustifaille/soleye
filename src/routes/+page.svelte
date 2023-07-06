@@ -58,12 +58,12 @@
     ];
 
     let localites = ["Fully", "Saxon", "Londres", "New York"];
-
+    let currentLocalite = localites[0];
 
 </script>
 
 <main>
-        <Location bind:localites />
+        <Location bind:currentLocalite localites={localites} />
 
         <div class="jours">
             {#each jours as jour}
