@@ -1,6 +1,8 @@
 <script>
     export let data;
-    import {scaleLinear} from "d3-scale";
+    import { scaleLinear } from "d3-scale";
+	import Location from "$lib/Location.svelte";
+
     // permet de pouvoir convertir une valeur de 1 à 100 en une couleur plus ou moins chaude
     const getColor = scaleLinear()
                 .domain([0, 100])
@@ -55,10 +57,14 @@
         },
     ];
 
+    let localites = ["Fully", "Saxon", "Londres", "New York"];
+
 
 </script>
 
 <main>
+        <Location bind:localites />
+
         <div class="jours">
             {#each jours as jour}
                 <div class="jour">
