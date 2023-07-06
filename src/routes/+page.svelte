@@ -57,8 +57,15 @@
         },
     ];
 
+    const updatePredictions = () => {
+        // fetch('/', )
+    }
+
+
     let localites = ["Fully", "Saxon", "Londres", "New York"];
     let currentLocalite = localites[0];
+
+    $: currentLocalite, updatePredictions();
 
 </script>
 
