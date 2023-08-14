@@ -1,30 +1,28 @@
 import SunburstJS from "sunburst.js";
-import { SUNBURST_CLIENT_ID, SUNBURST_CLIENT_SECRET, LAT, LONG } from "$env/static/private";
+import { SUNBURST_CLIENT_ID, SUNBURST_CLIENT_SECRET,SUNBURST_MAIL,SUNBURST_PASSWORD, LAT, LONG } from "$env/static/private";
 
-export async function load({ cookies }) {
+export async function load({ cookies, params }) {
 
     // https://www.npmjs.com/package/sunburst.js
 
-    // const sunburst = new SunburstJS();
+ /*    const sunburst = new SunburstJS();
 
-    // const session = await sunburst.createSession({
-    //     email: SUNBURST_MAIL,
-    //     password: SUNBURST_PASSWORD,
-    //     type: 'permanent',
-    //     scope: ['predictions']
-    // });
-
-    // console.log(session)
-
-    const sunburst = new SunburstJS({
-        clientId : SUNBURST_CLIENT_ID,
-        clientSecret : SUNBURST_CLIENT_SECRET,
-        scope : ["predictions"]
+    const session = await sunburst.createSession({
+        email: SUNBURST_MAIL,
+        password: SUNBURST_PASSWORD,
+        type: 'permanent',
+        satisfiescope: ['predictions']
     });
 
-    
+    console.log(session) */
 
-    const coords = [LAT, LONG];
+    const sunburst = new SunburstJS({
+        clientId : 'b35220dd-cb87-4bb8-95bc-3e3c4ddeb29b',
+        clientSecret : 'Ehe2JGJMgxTFj7ziZ3nAq5qObNoHj8yT',
+        scope : ["predictions"]
+    });    
+
+    const coords = params.coords.split(',');
 
     const now = new Date();
     const demain = new Date(now.getDate() + 1);
