@@ -46,26 +46,6 @@ export async function load({ cookies, params }) {
             geo : coords,
             type : "sunrise",
             after : demain
-        },
-        {
-            geo : coords,
-            type : "sunset",
-            after : apresdemain
-        },
-        {
-            geo : coords,
-            type : "sunrise",
-            after : apresdemain
-        },
-        {
-            geo : coords,
-            type : "sunset",
-            after : apresapresdemain
-        },
-        {
-            geo : coords,
-            type : "sunrise",
-            after : apresapresdemain
         }
     ]);
 

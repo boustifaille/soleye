@@ -15,7 +15,7 @@
 
     const jours = [
         {
-            nom : "Lundi",
+            nom : "Today",
             lever : {
                 qualite : data.qualites[0],
                 heure : "9h18",
@@ -26,7 +26,7 @@
             }
         },
         {
-            nom : "Mardi",
+            nom : "Tomorrow",
             lever : {
                 qualite : data.qualites[2],
                 heure : "9h18",
@@ -35,29 +35,7 @@
                 qualite : data.qualites[3],
                 heure : "18h18",
             }
-        },
-        {
-            nom : "Mercredi",
-            lever : {
-                qualite : data.qualites[4],
-                heure : "9h18",
-            },
-            coucher : {
-                qualite : data.qualites[5],
-                heure : "18h18",
-            }
-        },
-        {
-            nom : "Jeudi",
-            lever : {
-                qualite : data.qualites[6],
-                heure : "9h18",
-            },
-            coucher : {
-                qualite : data.qualites[7],
-                heure : "18h18",
-            }
-        },
+        }
     ];
 </script>
 
