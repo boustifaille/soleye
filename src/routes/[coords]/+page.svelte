@@ -1,15 +1,16 @@
 <script>
+	import Prediction from './../../lib/Prediction.svelte';
 
     export let data;
     import { scaleLinear } from "d3-scale";
     import Geolocation from "svelte-geolocation";
     import { goto } from "$app/navigation";
 
-        // permet de pouvoir convertir une valeur de 1 à 100 en une couleur plus ou moins chaude
-        const getColor = scaleLinear()
-                .domain([0, 100])
-                .range(["yellow", "red"])
-                .clamp(true);
+    // permet de pouvoir convertir une valeur de 1 à 100 en une couleur plus ou moins chaude
+    const getColor = scaleLinear()
+            .domain([0, 100])
+            .range(["yellow", "red"])
+            .clamp(true);
 
 
     const jours = [
@@ -68,16 +69,8 @@
             <div class="jour">
                 <h2>{jour.nom}</h2>
                 <div class="qualites">
-                    <div class="lever">
-                        <div class="color" style="background-color: {getColor(jour.lever.qualite)};">{jour.lever.qualite}%</div>
-                        <div class="img"></div>
-                        <div class="heure">{jour.lever.heure}</div>
-                    </div>
-                    <div class="coucher">
-                        <div class="color" style="background-color: {getColor(jour.coucher.qualite)};">{jour.coucher.qualite}%</div>
-                        <div class="img"></div>
-                        <div class="heure">{jour.coucher.heure}</div>
-                    </div>
+                    <Prediction infos={{qualite : jour.lever.qualite, type: "lever", color : getColor(jour.lever.qualite)}}/>
+                    <Prediction infos={{qualite : jour.coucher.qualite, type: "couher", color : getColor(jour.coucher.qualite)}} />
                 </div>
             </div>
         {/each}
@@ -133,35 +126,4 @@ main {
     gap: 10px;
 }
 
-.qualites > div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.img {
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-}
-
-.lever .img {
-    background-image: url("../../assets/icon-sunrise.png");
-}
-
-.coucher .img {
-    background-image: url("../../assets/icon-sunset.png");
-}
-
-.heure {
-    color: var(--gray);
-}
-
-.color {
-    width: 100px;
-    height: 100px;
-    display: grid;
-    place-items: center;
-    color: black;
-}
 </style>
