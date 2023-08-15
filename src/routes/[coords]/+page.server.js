@@ -1,5 +1,4 @@
 import SunburstJS from "sunburst.js";
-import { SUNBURST_MAIL,SUNBURST_PASSWORD } from "$env/static/private";
 
 export async function load({ cookies, params }) {
 
@@ -9,8 +8,8 @@ export async function load({ cookies, params }) {
     let sunburst = new SunburstJS();
     
     const session = await sunburst.createSession({
-        email: SUNBURST_MAIL,
-        password: SUNBURST_PASSWORD
+        email: "anthoeptm@gmail.com",
+        password: "hellowordjs"
     });
     
     sunburst = new SunburstJS({
