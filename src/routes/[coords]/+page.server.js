@@ -1,26 +1,24 @@
 import SunburstJS from "sunburst.js";
-import { SUNBURST_CLIENT_ID, SUNBURST_CLIENT_SECRET,SUNBURST_MAIL,SUNBURST_PASSWORD, LAT, LONG } from "$env/static/private";
+import { SUNBURST_MAIL,SUNBURST_PASSWORD } from "$env/static/private";
 
 export async function load({ cookies, params }) {
 
     // https://www.npmjs.com/package/sunburst.js
-
- /*    const sunburst = new SunburstJS();
-
+ 
+    
+    let sunburst = new SunburstJS();
+    
     const session = await sunburst.createSession({
         email: SUNBURST_MAIL,
-        password: SUNBURST_PASSWORD,
-        type: 'permanent',
-        satisfiescope: ['predictions']
+        password: SUNBURST_PASSWORD
     });
-
-    console.log(session) */
-
-    const sunburst = new SunburstJS({
-        clientId : 'b35220dd-cb87-4bb8-95bc-3e3c4ddeb29b',
-        clientSecret : 'Ehe2JGJMgxTFj7ziZ3nAq5qObNoHj8yT',
+    
+    sunburst = new SunburstJS({
+        clientId : session.clientId,
+        clientSecret : session.clientSecret,
         scope : ["predictions"]
     });    
+
 
     const coords = params.coords.split(',');
 

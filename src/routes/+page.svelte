@@ -1,4 +1,5 @@
 <script>
+	import { browser } from '$app/environment';
     import Geolocation from "svelte-geolocation";
     import { goto } from "$app/navigation";
 
@@ -6,9 +7,9 @@
         goto(`/${coords}`)
     }
 
-    let coords = [];
+    let coords;
 
-    $: coords && redirect();
+    $: browser && coords && redirect();
 
 </script>
 
