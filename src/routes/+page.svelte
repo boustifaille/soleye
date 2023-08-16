@@ -4,13 +4,15 @@
     import { goto } from "$app/navigation";
 
     const redirect = () => {
+        console.log(coords)
         goto(`/${coords}`)
     }
 
     let coords;
+    let success;
 
-    $: browser && coords && redirect();
+    $: success && redirect();
 
 </script>
 
-<Geolocation getPosition bind:coords />
+<Geolocation getPosition bind:coords bind:success/>

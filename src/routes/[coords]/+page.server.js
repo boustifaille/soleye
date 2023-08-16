@@ -16,7 +16,7 @@ export async function load({ cookies, params }) {
         clientId : session.clientId,
         clientSecret : session.clientSecret,
         scope : ["predictions"]
-    });    
+    });
 
 
     const coords = params.coords.split(',');
