@@ -6,20 +6,40 @@ export async function load({ cookies, params }) {
  
     
     let sunburst = new SunburstJS();
+
+    const oldClientId = cookies.get('sunsetwx-clientId');
+    const oldClientSecret = cookies.get('sunsetwx-clientSecret');
+
+    if (oldClientId && oldClientSecret) {
+
+        sunburst = new SunburstJS({
+            clientId : oldClientId,
+            clientSecret : oldClientSecret,
+            scope : ["predictions"]
+        });
+
+    } else {
+
+        const session = await sunburst.createSession({
+            email: "anthoeptm@gmail.com",
+            password: "hellowordjs",
+            scope : ["predictions"],
+            type:"permanent",
+        });
     
-    const session = await sunburst.createSession({
-        email: "anthoeptm@gmail.com",
-        password: "hellowordjs",
-        scope : ["predictions"],
-        type:"permanent",
-    });
-    console.log(session)
+        cookies.set("sunsetwx-clientId", session.clientId, {path : "/"});
+        cookies.set("sunsetwx-clientSecret", session.clientSecret, {path : "/"});
+
+        sunburst = new SunburstJS({
+            clientId : session.clientId,
+            clientSecret : session.clientSecret,
+            scope : ["predictions"]
+        });
+
+    }
     
-    // sunburst = new SunburstJS({
-    //     clientId : session.clientId,
-    //     clientSecret : session.clientSecret,
-    //     scope : ["predictions"]
-    // });
+
+    
 
 
     const coords = params.coords.split(',');
