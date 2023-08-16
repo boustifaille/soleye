@@ -9,14 +9,17 @@ export async function load({ cookies, params }) {
     
     const session = await sunburst.createSession({
         email: "anthoeptm@gmail.com",
-        password: "hellowordjs"
+        password: "hellowordjs",
+        scope : ["predictions"],
+        type:"permanent",
     });
+    console.log(session)
     
-    sunburst = new SunburstJS({
-        clientId : session.clientId,
-        clientSecret : session.clientSecret,
-        scope : ["predictions"]
-    });
+    // sunburst = new SunburstJS({
+    //     clientId : session.clientId,
+    //     clientSecret : session.clientSecret,
+    //     scope : ["predictions"]
+    // });
 
 
     const coords = params.coords.split(',');
