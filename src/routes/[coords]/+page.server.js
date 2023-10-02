@@ -1,4 +1,5 @@
 import SunburstJS from "sunburst.js";
+import { SUNBURST_MAIL, SUNBURST_PASSWORD } from "$env/static/private";
 
 export async function load({ cookies, params }) {
 
@@ -21,8 +22,8 @@ export async function load({ cookies, params }) {
     } else {
 
         const session = await sunburst.createSession({
-            email: "anthoeptm@gmail.com",
-            password: "hellowordjs",
+            email: SUNBURST_MAIL,
+            password: SUNBURST_PASSWORD,
             scope : ["predictions"],
             type:"permanent",
         });
@@ -37,10 +38,6 @@ export async function load({ cookies, params }) {
         });
 
     }
-    
-
-    
-
 
     const coords = params.coords.split(',');
 
