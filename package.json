@@ -16,6 +16,7 @@
 	"type": "module",
 	"dependencies": {
 		"d3-scale": "^4.0.2",
+		"node": "^20.7.0",
 		"sunburst.js": "^2.1.3",
 		"svelte-geolocation": "^0.3.0"
 	}
