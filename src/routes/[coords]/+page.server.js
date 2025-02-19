@@ -6,15 +6,15 @@ export async function load({ cookies, params }) {
     // https://www.npmjs.com/package/sunburst.js
  
     
-    let sunburst = new SunburstJS();
+    // let sunburst = new SunburstJS();
     
-    const session = await sunburst.createSession({
-        email: "anthoeptm@gmail.com",
-        password: "hellowordjs",
-        scope : ["predictions"],
-        type:"permanent",
-    });
-    console.log(session)
+    // const session = await sunburst.createSession({
+    //     email: "anthoeptm@gmail.com",
+    //     password: "hellowordjs",
+    //     scope : ["predictions"],
+    //     type:"permanent",
+    // });
+    // console.log(session)
     
     // sunburst = new SunburstJS({
     //     clientId : session.clientId,
@@ -30,29 +30,29 @@ export async function load({ cookies, params }) {
     const apresdemain = new Date(now.getDate() + 2);
     const apresapresdemain = new Date(now.getDate() + 3);
 
-    const resp = await sunburst.batchQuality([
-        {
-            geo : coords,
-            type : "sunset"
-        },{
-            geo : coords,
-            type : "sunrise"
-        },
-        {
-            geo : coords,
-            type : "sunset",
-            after : demain
-        },
-        {
-            geo : coords,
-            type : "sunrise",
-            after : demain
-        }
-    ]);
+    // const resp = await sunburst.batchQuality([
+    //     {
+    //         geo : coords,
+    //         type : "sunset"
+    //     },{
+    //         geo : coords,
+    //         type : "sunrise"
+    //     },
+    //     {
+    //         geo : coords,
+    //         type : "sunset",
+    //         after : demain
+    //     },
+    //     {
+    //         geo : coords,
+    //         type : "sunrise",
+    //         after : demain
+    //     }
+    // ]);
 
 
     return {
-        qualites : [...resp.map(res => res.collection.features[0].properties.qualityPercent)]
+        qualites : [50, 60, 90, 70]
         // {
         //     aujourdhui : resp[0].collection.features[0].properties.qualityPercent,
         //     demain : resp[1].collection.features[0].properties.qualityPercent,

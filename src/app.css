@@ -8,12 +8,18 @@
 }
 
 :root {
-    --red : #ef233c;
-    --dark-red : #d90429;
-    --white : #edf2f4;
-    --gray : #8d99ae;
+    --black: #2C2C2C;
+    --primary: #F97951;
+    --grey: #575757;
+    --secondary: #7ADAF9;
+    --white: #FFF;
+    --light-grey: #C3C3C3
 }
 
 button, a {
     cursor: pointer;
+}
+
+body {
+    background-color: var(--black);
 }
