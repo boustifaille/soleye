@@ -7,7 +7,7 @@
 
     const jours = [
         {
-            nom : "Today",
+            nom : "mercredi 19 févr.",
             lever : {
                 qualite : data.qualites[0],
                 heure : "9h18",
@@ -18,7 +18,7 @@
             }
         },
         {
-            nom : "Tomorrow",
+            nom : "jeudi 20 févr.",
             lever : {
                 qualite : data.qualites[2],
                 heure : "9h18",
@@ -29,7 +29,7 @@
             }
         },
         {
-            nom : "After tomorrow",
+            nom : "vendredi 21 févr.",
             lever : {
                 qualite : data.qualites[0],
                 heure : "9h18",
@@ -41,29 +41,33 @@
         },
     ];
 
-    const lieu = ['Sion', 'Fully']
+    let lieu = ['Sion', 'Fully']
+
+    const addMy = () => {
+        lieu = [...lieu, 'Martigny']
+    }
 </script>
 
 <main>
     
     <div class="lieu">
         {#each lieu as l}
-            <Lieu jours={jours} lieu={l} />
+            <Lieu jours={jours} lieu={l} removeLieu={() => lieu = lieu.filter(el => el !== l)} />
         {/each}
     </div>
     <!-- <div class="exemple"><span>0%</span><span>100%</span></div> -->
 
 
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="btn-plus" on:click={() => lieu.push('Martigny')}>
+    <div class="btn-plus" on:click={addMy}>
         <img src={plus} alt="plus" width="15px" />
     </div>
 </main>
 
 <style>
 main {
-    margin-top: 100px;
-    height: calc(100vh - 50px);
+    margin: 100px 0;
+    /* height: calc(100vh - 50px); */
 }
 
 .exemple {
@@ -92,7 +96,7 @@ main {
     border-radius: 50%;
     display: grid;
     place-content: center;
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     right: 15px;
 }

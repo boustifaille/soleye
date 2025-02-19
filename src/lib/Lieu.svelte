@@ -1,19 +1,45 @@
 <script>
     import Prediction from "./Prediction.svelte";
     import { scaleLinear } from "d3-scale";
+    import imgMenu from "$lib/assets/ellipsis-vertical-solid.svg"
 
     export let jours;
     export let lieu;
+    export let removeLieu;
 
     const getColor = scaleLinear()
             .domain([0, 100])
             .range(["yellow", "red"])
             .clamp(true);
 
+
+            
+    function remove() {
+        displayPopover = false
+        removeLieu()
+    }
+
+    let displayPopover = false;
+
 </script>
 
+<svelte:document on:click={() => displayPopover = false} />
+
 <div>
-    { lieu }
+    <div class="lieu-header">
+        { lieu }
+        <div>
+            <!-- svelte-ignore a11y-click-events-have-key-events -->
+            <img src={imgMenu} alt="" width="5px" on:click={(e) => {e.stopPropagation();displayPopover = true} } >
+            <div class="menu" style={displayPopover ? 'display: block;' : 'display:none;'}>
+                <ul>
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <li on:click={remove}>Supprimer</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="jours">
         {#each jours as jour}
         <div class="jour">
@@ -28,6 +54,40 @@
 </div>
 
 <style>
+
+.lieu-header {
+    width: calc(100% - 15px);
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+    position: relative;
+}
+
+.lieu-header img {
+    filter: invert(1);
+}
+
+.menu {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background-color: white;
+    width: 100px;
+    height: 40px;
+}
+
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.menu li {
+    color: var(--black);
+}
+
 .jours {
     left: 0;
     display: flex;
