@@ -44,7 +44,7 @@
     let lieu = ['Sion', 'Fully']
 
     const addMy = () => {
-        lieu = [...lieu, 'Martigny']
+        if (!lieu.includes('Martigny')) lieu = [...lieu, 'Martigny']
     }
 </script>
 
