@@ -23,7 +23,7 @@ export async function load({ cookies, params }) {
     // });
 
 
-    const coords = params.coords.split(',');
+    // const coords = params.coords.split(',');
 
     const now = new Date();
     const demain = new Date(now.getDate() + 1);
