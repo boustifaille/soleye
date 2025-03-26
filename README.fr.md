@@ -19,3 +19,5 @@ Lancer le projet en développement
 ```sh
 npm run dev
 ``` 
+
+Ouvrir l'url dans le navigateur [http://localhost:5173]()
